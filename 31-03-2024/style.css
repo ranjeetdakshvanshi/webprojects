@@ -1,1 +1,7 @@
-
+<style>
+   .container{
+      padding: 10px;
+      height: 280px;
+      box-shadow: 1px 1px 10px blue;
+     }
+</style>
