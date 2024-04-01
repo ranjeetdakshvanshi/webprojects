@@ -1,5 +1,4 @@
-
-   var cities=["Delhi","Hyd","Mumbai","Agara","PrayagRaj"];
+ var cities=["Delhi","Hyd","Mumbai","Agara","PrayagRaj"];
     function LoadCities(){
     document.getElementById("stCities").innerHTML="";
      for(let city of cities){
