@@ -1,4 +1,4 @@
-<script>
+
    var cities=["Delhi","Hyd","Mumbai","Agara","PrayagRaj"];
     function LoadCities(){
     document.getElementById("stCities").innerHTML="";
@@ -54,4 +54,4 @@
                cities.reverse();
                LoadCities();
             }
-</script>
+
