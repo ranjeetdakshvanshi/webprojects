@@ -1,0 +1,13 @@
+  section{
+        margin: 5px;
+        padding: 10px;
+        box-shadow: 1px 1px 10px blue;
+    }
+    .card-img-top:hover{
+      box-shadow: 1px 1px  5px 1px  blue;
+    }
+    span{
+      color: red;
+      font-weight: bold;
+      font-size: 15px;
+    }
