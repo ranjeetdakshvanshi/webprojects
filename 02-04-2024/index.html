@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA</title>
+  <link rel="sortcut icon" href="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+ <script>
+    function bodyload(){
+               fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=6ffzhNjjV1XA2HkP9u2ghEmZVMK8Rb2M2ZG4n6Fl&quot;")
+                    .then(function(respose){
+                      return respose.json()
+                    })
+                    .then(function(marsObject){
+                      console.log(marsObject);
+                      for(let item of marsObject.photos)
+                      {
+                        var div=document.createElement("div");
+                        div.className="card p-2 m-2";
+                        div.style.width="300px";
+                        div.style.cursor="pointer";
+                        div.innerHTML=`<img src=${item.img_src} class="card-img-top" height="300px" />
+                        <div class="card-header"><h3>PHOTO ID:${item.id}</h3></div>
+                        <div class="card-body">
+                          <dl>
+                            <dt>Camera Name:</dt>
+                            <dl>${item.camera.full_name}</dl>
+                            <dt>Earth Date:</dt>
+                            <dl>${item.earth_date}</dl>
+                            </dl>
+                            <dt>Rover Name:</dt>
+                            <dl>${item.rover.name}</dl>
+                            </dl>
+                          </div>`;
+                        document.querySelector("main").appendChild(div);
+
+                      }
+                    }) }
+</script>
+    <style>
+    section{
+        margin: 5px;
+        padding: 10px;
+        box-shadow: 1px 1px 10px blue;
+    }
+    .card-img-top:hover{
+      box-shadow: 1px 1px  5px 1px  blue;
+    }
+    span{
+      color: red;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body class="container-fluid" onload="bodyload();">
+<section>
+  <div>
+   <a href="https://www.nasa.gov/"><img style="cursor:pointer;"   src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" alt="NASA_LOGO" ></a>
+    <marquee scrollamount="8" behavior="alternate"><p style="padding:10px;"><span>Note:</span> NASA API have been used to make this desing. If you also want to make your own desing then click <span style="color:green">NASA API</span>.</p></marquee>
+    <a href="https://api.nasa.gov/"> <button class="btn btn-success">NASA API</button></a>
+  </div>
+  <main class="d-flex flex-wrap">
+  </main>
+  
+</section>
+</body>
+</html>
